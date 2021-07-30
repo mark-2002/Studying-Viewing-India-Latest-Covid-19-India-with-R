@@ -69,11 +69,10 @@ uttah_titles <- c("Active Ratio","Discharged Ratio","Death Ratio")
 ggplot() + geom_bar(aes(x=" ",y = uttah_values,fill = uttah_titles),stat="identity",colour="white") + coord_polar("y",start=0) + theme_bw() + theme(panel.grid = element_blank(),panel.border = element_blank(),axis.title = element_blank(),axis.ticks=element_blank(),axis.text=element_blank()) + ggtitle("India's most populous state - Uttah Pradesh") + scale_fill_brewer(palette = "Reds",name="Case Studies")
 
 
-#Studying India's Most Populous State - Sikkim
+#Studying India's Least Populous State - Sikkim
 sikkim_active <- df_india[30,6]
 sikkim_discharged <- df_india[30,7]
 sikkim_death <- df_india[30,8]
 sikkim_values <- c(sikkim_active,sikkim_discharged,sikkim_death)
 sikkim_titles <- c("Active Ratio","Discharged Ratio","Death Ratio")
 ggplot() + geom_bar(aes(x = " ",y = sikkim_values,fill = sikkim_titles),stat = "identity",colour="white") + theme_bw() + coord_polar("y",start=0)+theme(panel.grid = element_blank(),panel.border = element_blank(),axis.title = element_blank(),axis.ticks = element_blank(),axis.text=element_blank()) + scale_fill_brewer(palette = "Blues",name="Case Studies") + ggtitle("India's Least Populous State")
-
