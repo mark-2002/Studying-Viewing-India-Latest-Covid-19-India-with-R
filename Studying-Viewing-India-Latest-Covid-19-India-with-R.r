@@ -57,5 +57,23 @@ delhi_titles <- c("Active Ratio","Discharged Ratio","Death Ratio")
 print(delhi_values)
 print(delhi_titles)
 library(ggplot2)
-ggplot() + theme_bw() + geom_bar(aes(x=" ",y = delhi_values,fill = delhi_titles ),stat = "identity",colour ="white") + coord_polar("y",start = 0)+ggtitle("Taking a look at India's Capital New Delhi") + theme(axis.title = element_blank(),axis.ticks=element_blank(),axis.text=element_blank(),panel.border = element_blank(),panel.grid = element_blank()) + scale_fill_brewer(palette = "Greens",name = "Case Studies") + geom_text(aes(x=" ",y = delhi_values_1,),size = 3)
+ggplot() + theme_bw() + geom_bar(aes(x=" ",y = delhi_values,fill = delhi_titles ),stat = "identity",colour ="white") + coord_polar("y",start = 0)+ggtitle("Taking a look at India's Capital New Delhi") + theme(axis.title = element_blank(),axis.ticks=element_blank(),axis.text=element_blank(),panel.border = element_blank(),panel.grid = element_blank()) + scale_fill_brewer(palette = "Greens",name = "Case Studies")
 #theme_bw() removes gray background
+
+#Studying India's Most Populous State Uttah Pradesh
+uttah_active <- df_india[34,6]
+uttah_discharged <- df_india[34,7]
+uttah_death <- df_india[34,8]
+uttah_values <- c(uttah_active,uttah_discharged,uttah_death)
+uttah_titles <- c("Active Ratio","Discharged Ratio","Death Ratio")
+ggplot() + geom_bar(aes(x=" ",y = uttah_values,fill = uttah_titles),stat="identity",colour="white") + coord_polar("y",start=0) + theme_bw() + theme(panel.grid = element_blank(),panel.border = element_blank(),axis.title = element_blank(),axis.ticks=element_blank(),axis.text=element_blank()) + ggtitle("India's most populous state - Uttah Pradesh") + scale_fill_brewer(palette = "Reds",name="Case Studies")
+
+
+#Studying India's Most Populous State - Sikkim
+sikkim_active <- df_india[30,6]
+sikkim_discharged <- df_india[30,7]
+sikkim_death <- df_india[30,8]
+sikkim_values <- c(sikkim_active,sikkim_discharged,sikkim_death)
+sikkim_titles <- c("Active Ratio","Discharged Ratio","Death Ratio")
+ggplot() + geom_bar(aes(x = " ",y = sikkim_values,fill = sikkim_titles),stat = "identity",colour="white") + theme_bw() + coord_polar("y",start=0)+theme(panel.grid = element_blank(),panel.border = element_blank(),axis.title = element_blank(),axis.ticks = element_blank(),axis.text=element_blank()) + scale_fill_brewer(palette = "Blues",name="Case Studies") + ggtitle("India's Least Populous State")
+
