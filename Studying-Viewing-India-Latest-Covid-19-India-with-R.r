@@ -48,6 +48,14 @@ ggplot() + geom_bar(aes(x=reorder(State,Discharge),y=Discharge),stat="identity",
 ggplot() + geom_bar(aes(x=reorder(State,Death),y=Death),stat="identity",fill = "yellow") + theme(axis.text.x = element_text(angle=90,hjust=1)) + xlab("States") + ylab("Number of deaths cases in hundreds")+coord_flip() + ggtitle("India's states with death cases")
 
 #Studying India"s capital New Delhi
-print(df_india[9,])
-delhi <- list(df_india[9,])
-print(delhi)
+delhi_active <- df_india[9,6]
+delhi_discharged <- df_india[9,7]
+delhi_death <- df_india[9,8]
+delhi_values <- c(delhi_active,delhi_discharged,delhi_death)
+delhi_values_1 <- 100 - delhi_values
+delhi_titles <- c("Active Ratio","Discharged Ratio","Death Ratio")
+print(delhi_values)
+print(delhi_titles)
+library(ggplot2)
+ggplot() + theme_bw() + geom_bar(aes(x=" ",y = delhi_values,fill = delhi_titles ),stat = "identity",colour ="white") + coord_polar("y",start = 0)+ggtitle("Taking a look at India's Capital New Delhi") + theme(axis.title = element_blank(),axis.ticks=element_blank(),axis.text=element_blank(),panel.border = element_blank(),panel.grid = element_blank()) + scale_fill_brewer(palette = "Greens",name = "Case Studies") + geom_text(aes(x=" ",y = delhi_values_1,),size = 3)
+#theme_bw() removes gray background
