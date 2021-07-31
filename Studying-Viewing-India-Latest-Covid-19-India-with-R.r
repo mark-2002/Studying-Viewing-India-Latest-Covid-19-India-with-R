@@ -20,9 +20,14 @@ print(paste0("The state with the lowest case is  ", lowest))
 print(paste0("The state with the highest case is  ", highest))
 print(paste0("The average number of people who survive and recover from covid-19 is: ", average_discharged))
 print(paste0("The average number of people who don't survive and die in india is: ", average_death))
+
 #India"s maximum cases states
-States <- df_india[df_india['Total.Cases'] >= mean_india ]
+States <- df_india$State.UTs[df_india['Total.Cases'] >= mean_india ]
 Total_Cases <- df_india$Total.Cases[df_india['Total.Cases'] >= mean_india]
+print(States)
+print(Total_Cases)
+df_etc <- data.frame(States,Total_Cases)
+print(df_etc)
 
 #visualisation
 #getting india's states as vectors
